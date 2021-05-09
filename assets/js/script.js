@@ -111,4 +111,16 @@ if (confirmLower && confirmUpper && confirmNumber && confirmSpecial) {
         console.log(feedback);
       };
 
+      var passwordBlank = [];
+
+      for (var i = 0; i < sizePassword; i++) {
+        var criteria = feedback[Math.floor(Math.random() * feedback.length)];
+        passwordBlank.push(criteria);
+        console.log(criteria);
+      };
+    
+      var password = passwordBlank.join("");
+      console.log("Your Pasword is: " + password);
+      return password;
+}
 
