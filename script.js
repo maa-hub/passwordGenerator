@@ -20,8 +20,58 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
-var passwordLength = prompt("How many characters would you like your password? Choose between 8 and 128");
-console.log("Password is" + passwordLength + "long");
+var sizePassword = prompt("How many characters would you like your password? Choose between 8 and 128");
+console.log("Password is " + sizePassword + " long");
+
+if(!sizePassword || sizePassword < 8 || sizePassword > 128) {
+    sizePassword = prompt("Please enter a number between 8 and 128");
+    console.log("Password is " + sizePassword + " long");
+
+var sizePassword = prompt("How many characters would you like your password? Choose between 8 and 128");
+
+} else {
+    var confirmUpper = confirm("Would you like to use uppercase letters?");
+    console.log(confirmUpper);
+    var confirmLower = confirm("Would you like to use lowercase letters?");
+    console.log(confirmLower);
+    var confirmNumber = confirm("would you like to use numbers?");
+    console.log(confirmNumber);
+    var confirmSpecial = confirm("would you like to use special characters?");
+    console.log(confirmSpecial);
+};
+
+ if (!confirmLower && !confirmUpper && !confirmNumber && !confirmSpecial) {
+   alert("You must select at least one criteria");
+ }
+ var userChoice= [];
 
 
+if (confirmLower) {
+    userChoice=userChoice.concat(lower);
 }
+
+if (confirmUpper) {
+    userChoice=userChoice.concat(upper);
+}
+
+if (confirmNumber) {
+    userChoice=userChoice.concat(numbers);
+}
+
+if (confirmSpecial) {
+    userChoice=userChoice.concat(specialCharacters);
+}
+
+      var passwordBlank = [];
+
+      for (var i = 0; i < sizePassword; i++) {
+        var criteria = userChoice[Math.floor(Math.random() * userChoice.length)];
+        passwordBlank.push(criteria);
+        console.log(criteria);
+      };
+    
+      var password = passwordBlank.join("");
+      console.log("Your Pasword is: " + password);
+      return password;
+}
+
