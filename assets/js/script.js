@@ -41,80 +41,31 @@ var sizePassword = prompt("How many characters would you like your password? Cho
 };
 
  if (!confirmLower && !confirmUpper && !confirmNumber && !confirmSpecial) {
-    feedback = alert("You must select at least one criteria");
+   alert("You must select at least one criteria");
  }
-// all four criteria selected
-if (confirmLower && confirmUpper && confirmNumber && confirmSpecial) {
-    var feedback = lower.concat(upper, numbers, specialCharacters);
-    console.log(feedback);
+ var userChoice= [];
+
+
+if (confirmLower) {
+    userChoice=userChoice.concat(lower);
 }
 
-// three criteria selected
-    else if (confirmLower && confirmUpper && confirmNumber) {
-        var feedback = lower.concat(upper, numbers);
-        console.log(feedback);
-      }
-      else if (confirmLower && confirmUpper && confirmSpecial) {
-        var feedback = lower.concat(upper, specialCharacters);
-        console.log(feedback);
-      }
-      else if (confirmLower && confirmNumber && confirmSpecial) {
-        var feedback = lower.concat(numbers, specialCharacters);
-        console.log(feedback);
-      }
-      else if (confirmUpper && confirmNumber && confirmSpecial) {
-        var feedback = upper.concat(numbers, specialCharacters);
-        console.log(feedback);
-      }
+if (confirmUpper) {
+    userChoice=userChoice.concat(upper);
+}
 
-      // two criteria selected
-      else if (confirmLower && confirmUpper) {
-        var feedback = lower.concat(upper);
-        console.log(feedback);
-      }
-      else if (confirmLower && confirmNumber) {
-        var feedback = lower.concat(numbers);
-        console.log(feedback);
-      }
-      else if (confirmLower && confirmSpecial) {
-        var feedback = lower.concat(specialCharacters);
-        console.log(feedback);
-      }
-      else if (confirmUpper && confirmNumber) {
-        var feedback = upper.concat(numbers);
-        console.log(feedback);
-      }
-      else if (confirmUpper && confirmSpecial) {
-        var feedback = upper.concat(specialCharacters);
-        console.log(feedback);
-      }
-      else if (confirmNumber && confirmSpecial) {
-        var feedback = numbers.concat(specialCharacters);
-        console.log(feedback);
-      }
+if (confirmNumber) {
+    userChoice=userChoice.concat(numbers);
+}
 
-      // one criteria selected
-      else if (confirmLower) {
-        var feedback = lower;
-        console.log(feedback);
-      }
-      else if (confirmUpper) {
-        var feedback = upper;
-        console.log(feedback);
-      }
-      else if (confirmNumber) {
-        var feedback = numbers;
-        console.log(feedback);
-      }
-      else if (confirmSpecial) {
-        var feedback = specialCharacters;
-        console.log(feedback);
-      };
+if (confirmSpecial) {
+    userChoice=userChoice.concat(specialCharacters);
+}
 
       var passwordBlank = [];
 
       for (var i = 0; i < sizePassword; i++) {
-        var criteria = feedback[Math.floor(Math.random() * feedback.length)];
+        var criteria = userChoice[Math.floor(Math.random() * userChoice.length)];
         passwordBlank.push(criteria);
         console.log(criteria);
       };
