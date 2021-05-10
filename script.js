@@ -27,7 +27,6 @@ if(!sizePassword || sizePassword < 8 || sizePassword > 128) {
     sizePassword = prompt("Please enter a number between 8 and 128");
     console.log("Password is " + sizePassword + " long");
 
-var sizePassword = prompt("How many characters would you like your password? Choose between 8 and 128");
 
 } else {
     var confirmUpper = confirm("Would you like to use uppercase letters?");
